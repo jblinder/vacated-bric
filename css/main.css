@@ -1,0 +1,87 @@
+
+/* Fonts */
+@font-face {
+    font-family: decimamono-light;
+    src: url(../fonts/decimamono-light-webfont.ttf);
+}
+
+@font-face {
+    font-family: decima-light;
+    src: url(../fonts/decima-light-webfont.ttf);
+}
+
+body {
+    font-family: decimamono-light;
+    text-transform: uppercase;
+}
+
+.address{
+    position: absolute;
+    top:10px;
+    color:#FFFFFF;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+   text-align: center;
+   z-index: 999;
+}
+
+#slides{
+    width: 100%; 
+    height: 100%;
+    display: none;
+}
+
+.ui-page-theme-a a, html .ui-bar-a a, html .ui-body-a a, html body .ui-group-theme-a, .ui-page-theme-a a:visited, html .ui-bar-a a:visited, html .ui-body-a a:visited, html body .ui-group-theme-a a:visited {
+    color:#FFFFFF;
+    font-weight: 100;
+    text-decoration: none;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* Hide the number input */
+
+.full-width-slider input {
+    display: none;
+}
+.full-width-slider .ui-slider-track {
+    margin-left: 15px;
+}
+
+/* Slick */
+
+.slick-dots {
+    display: table;
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    padding:0;
+    position: relative;
+    top: -120px;
+}
+
+.slick-dots li {
+    display: table-cell;
+    background: #ddd;
+    opacity: .5;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.slick-dots a {
+    display: block;
+    border: 1px solid red;
+    text-align: center;
+    margin: 0 5px;
+}
+

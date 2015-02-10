@@ -1,0 +1,22 @@
+{
+	"version": 1.0,
+	"location": "BRIC",
+	"exhibition": "Mapping Brooklyn",
+	"devices":[{	
+		"id": 1,
+		"locations" :[{
+			"address":"xyz",
+			"images": [
+			{
+				"url": "/img/",
+				"date": 2007,
+				"year": 2007
+			},
+			{
+				"url": "/img/",
+				"date": 2011,
+				"year": 2011
+			}]
+		}]
+	}]
+}

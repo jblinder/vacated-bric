@@ -33,7 +33,7 @@ $(document).ready(function(){
             $.each( currentLocation.images, function( key, val ) {
                 var imgPath = currentLocation.path + val.url;
                 var date    = val.month +"-"+ val.year;
-                slides.push( '<div><img src=\"' + imgPath + '\" alt=\"'+date+'\"/></div>');
+                slides.push( '<div><img data-lazy=\"' + imgPath + '\" alt=\"'+date+'\"/></div>');
             });
             $('.slides').append(slides);
             console.log("loading");
@@ -63,85 +63,76 @@ $(document).ready(function(){
         console.log("loc counter is now" + locCounter);    
         loadLocation();
     });
+
+
+        /*
+    -- Slick -- 
+    */ 
+
+    function unloadSlick(isFirstLoad,cb){
+        console.log("unloading");
+        if (isFirstLoad) {
+            cb();
+            return;
+        }
+
+        $('.main-container').animate({ opacity: 0 }, 700, "linear", function() {
+            $('.slides').unbind();           // need to unbind slick events
+            $('.slides').slick('unslick');   // unload slick
+            $('.slides').empty();            // empty slides
+            cb();
+        });
+    }
+
+    function loadSlick() {
+        console.log("load slick");
+        // On re-initialize
+        $('.slides').on('init', function(event, slick, direction){
+            console.log("init");
+            $('.main-container').animate({ opacity: 1 },700,"linear",function(){
+
+            });
+        });
+
+        // On swipe event
+        $('.slides').on('swipe', function(event, slick, direction){
+          console.log(direction);
+          // left
+        });
+
+        // On edge hit
+        $('.slides').on('edge', function(event, slick, direction){
+          console.log('edge was hit')
+        });
+
+        // On before slide change
+        $('.slides').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            console.log(event);
+            console.log(nextSlide);
+        });
+
+        $('.slides').slick({
+            dots: true,
+            mobileFirst: true,
+            infinite: false,
+            speed: 700,
+            fade: true,
+            cssEase: 'ease-out',
+            lazyLoad: 'progressive',
+            arrows: false,
+            customPaging: function(slick,index) {
+                var image_title = slick.$slides.eq(index).find('img').attr('alt') || '';
+                return '<span>' + image_title + '</span>';
+            }
+        });
+    }
+
+    function log(text){
+        if (DEV_MODE) {
+            console.log(arguments.callee.caller);
+            console.log(text);
+        }
+    }
 });
 
-
-/* jQuery Slider */
-// $( ".full-width-slider" ).bind( "change", fadeImage);
-
-// function fadeImage(event, ui) {
-//     var sliderValue = event.target.valueAsNumber;
-//     console.log(sliderValue);
-// }
-/*
--- Nav -- 
-*/
-
-
-
-/*
--- Slick -- 
-*/ 
-
-function unloadSlick(isFirstLoad,cb){
-    console.log("unloading");
-    if (isFirstLoad) {
-        cb();
-        return;
-    }
-
-    $('.slides').animate({ opacity: 0 }, function() {
-        $('.slides').unbind();           // need to unbind slick events
-        $('.slides').slick('unslick');   // unload slick
-        $('.slides').empty();            // empty slides
-        cb();
-    });
-}
-
-function log(text){
-    if (DEV_MODE) {
-        console.log(arguments.callee.caller);
-        console.log(text);
-    }
-}
-
-function loadSlick() {
-    console.log("load slick");
-    // On re-initialize
-    $('.slides').on('init', function(event, slick, direction){
-        console.log("init");
-        $('.slides').animate({ opacity: 1 });
-    });
-
-    // On swipe event
-    $('.slides').on('swipe', function(event, slick, direction){
-      console.log(direction);
-      // left
-    });
-
-    // On edge hit
-    $('.slides').on('edge', function(event, slick, direction){
-      console.log('edge was hit')
-    });
-
-    // On before slide change
-    $('.slides').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-        console.log(event);
-        console.log(nextSlide);
-    });
-
-    $('.slides').slick({
-        dots: true,
-        mobileFirst: true,
-        infinite: false,
-        speed: 700,
-        fade: true,
-        cssEase: 'ease-out',
-        arrows: false,
-        customPaging: function(slick,index) {
-            var image_title = slick.$slides.eq(index).find('img').attr('alt') || '';
-            return '<span>' + image_title + '</span>';
-        }
-    });
-}
             

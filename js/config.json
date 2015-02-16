@@ -36,6 +36,37 @@
 			]
 		},
 		{
+			"address":"Carroll Street and 4th Ave Brooklyn, NY",
+			"path" : "img/1/4th-Carroll/",
+			"images": [
+				{
+					"url"  : "2007-06.jpg",
+					"month": "06",
+					"year" : "2007"
+				},
+				{
+					"url"  : "2007-10.jpg",
+					"month": "10",
+					"year" : "2007"
+				},
+				{
+					"url"  : "2009-06.jpg",
+					"month": "06",
+					"year" : "2009"
+				},
+				{
+					"url"  : "2011-06.jpg",
+					"month": "06",
+					"year" : "2011"
+				},
+				{
+					"url"  : "2014-08.jpg",
+					"month": "08",
+					"year" : "2014"
+				}
+			]
+		},
+		{
 			"address":"261 Saint Marks Ave Brooklyn, NY",
 			"path" : "img/1/261-StMarks-Ave/",
 			"images": [
@@ -57,6 +88,71 @@
 				{
 					"url"  : "2014-08.jpg",
 					"month": "08",
+					"year" : "2014"
+				}
+			]
+		}]
+	},
+	{
+		"id" : 2,
+		"locations":[{
+			"address":"301 State St Brooklyn, NY",
+			"path" : "img/2/301-State-Street/",
+			"images": [
+				{
+					"url"  : "2007-09.jpg",
+					"month": "09",
+					"year" : "2007"
+				},
+				{
+					"url"  : "2011-06.jpg",
+					"month": "06",
+					"year" : "2011"
+				},
+				{
+					"url"  : "2013-09.jpg",
+					"month": "09",
+					"year" : "2013"
+				},
+				{
+					"url"  : "2013-10.jpg",
+					"month": "10",
+					"year" : "2013"
+				},
+				{
+					"url"  : "2014-09.jpg",
+					"month": "09",
+					"year" : "2014"
+				}
+			]
+		},
+		{
+			"address":"Fulton St. & Rockewell Pl. Brooklyn, NY",
+			"path" : "img/2/BRIC-647-Fulton-Street/",
+			"images": [
+				{
+					"url"  : "2007-09.jpg",
+					"month": "09",
+					"year" : "2007"
+				},
+				{
+					"url"  : "2009-06.jpg",
+					"month": "06",
+					"year" : "2009"
+				},
+				{
+					"url"  : "2011-06.jpg",
+					"month": "06",
+					"year" : "2013"
+				},
+				{
+					"url"  : "2013-10.jpg",
+					"month": "10",
+					"year" : "2013"
+				},
+				{
+					"url"  : "2014-10.jpg",
+					"month": "10",
 					"year" : "2014"
 				}
 			]

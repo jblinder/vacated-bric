@@ -18,7 +18,7 @@ $(document).ready(function(){
 
     function loadJSON() { 
         $.getJSON( "js/config.json", function( data ) {
-            locations = data.devices[0].locations;
+            locations = data.devices[1].locations;
             loadLocation();
             isFirstLoad = false;
         });

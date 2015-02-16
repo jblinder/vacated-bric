@@ -5,7 +5,7 @@
 	"devices":[{	
 		"id": 1,
 		"locations" :[{
-			"address":"233 34th St Brooklyn NY",
+			"address":"233 34th St Brooklyn, NY",
 			"path" : "img/1/233-34th-St/",
 			"images": [
 				{
@@ -36,7 +36,7 @@
 			]
 		},
 		{
-			"address":"261 Saint Marks Ave Brooklyn NY",
+			"address":"261 Saint Marks Ave Brooklyn, NY",
 			"path" : "img/1/261-StMarks-Ave/",
 			"images": [
 				{

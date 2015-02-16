@@ -35,6 +35,7 @@ $(document).ready(function(){
                 var date    = val.month +"-"+ val.year;
                 slides.push( '<div><img data-lazy=\"' + imgPath + '\" alt=\"'+date+'\"/></div>');
             });
+            $('.address').text(currentLocation.address);
             $('.slides').append(slides);
             console.log("loading");
             loadSlick();

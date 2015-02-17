@@ -17,8 +17,12 @@ $(document).ready(function(){
     loadJSON();
 
     function loadJSON() { 
+        // TODO: sanity check here
+        var deviceId = (getDeviceID('id')) ?  parseInt(getDeviceID('id')) : 1;
+        deviceId--;
+        console.log("device id is " + deviceId);
         $.getJSON( "js/config.json", function( data ) {
-            locations = data.devices[1].locations;
+            locations = data.devices[deviceId].locations;
             loadLocation();
             isFirstLoad = false;
         });
@@ -135,5 +139,30 @@ $(document).ready(function(){
         }
     }
 });
+
+function getDeviceID() {
+   var iPadID = "";
+   try {
+      iPadID = kioskpro_id.toString();
+   }
+   catch(e){
+        return getUrlParameter("id");      
+   }
+   return iPadID;
+}
+
+function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}          
 
             

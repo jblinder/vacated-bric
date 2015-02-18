@@ -138,7 +138,7 @@
 				{
 					"url"  : "2011-06.jpg",
 					"month": "06",
-					"year" : "2013"
+					"year" : "2011"
 				},
 				{
 					"url"  : "2013-10.jpg",
@@ -148,6 +148,37 @@
 				{
 					"url"  : "2014-10.jpg",
 					"month": "10",
+					"year" : "2014"
+				}
+			]
+		},
+				{
+			"address":"Smith Ave. & Pacific St. Brooklyn, NY",
+			"path" : "img/2/Pacific-Smith/",
+			"images": [
+				{
+					"url"  : "2007-09.jpg",
+					"month": "09",
+					"year" : "2007"
+				},
+				{
+					"url"  : "2009-06.jpg",
+					"month": "06",
+					"year" : "2009"
+				},
+				{
+					"url"  : "2011-06.jpg",
+					"month": "06",
+					"year" : "2011"
+				},
+				{
+					"url"  : "2013-10.jpg",
+					"month": "10",
+					"year" : "2013"
+				},
+				{
+					"url"  : "2014-08.jpg",
+					"month": "08",
 					"year" : "2014"
 				}
 			]

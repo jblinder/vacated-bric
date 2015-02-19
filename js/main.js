@@ -43,6 +43,7 @@ $(document).ready(function(){
             $('.slides').append(slides);
             console.log("loading");
             loadSlick();
+            //$('.slides').slick('slickPlay');
         });
     }
 
@@ -122,6 +123,8 @@ $(document).ready(function(){
             infinite: false,
             speed: 700,
             fade: true,
+            // autoplay: true,
+            // autoplaySpeed: 3000,
             cssEase: 'ease-out',
             lazyLoad: 'progressive',
             arrows: false,

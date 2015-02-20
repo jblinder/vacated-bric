@@ -1,5 +1,6 @@
 
 /* Fonts */
+
 @font-face {
     font-family: decimamono-light;
     src: url(../fonts/decimamono-light-webfont.ttf);
@@ -8,6 +9,12 @@
 @font-face {
     font-family: decima-light;
     src: url(../fonts/decima-light-webfont.ttf);
+}
+
+@-webkit-keyframes grayPulse {
+  from { background-color: #1C1C1C; }
+  50% { background-color: #323232; }
+  to { background-color: #1C1C1C;}
 }
 
 body {
@@ -57,27 +64,31 @@ img {
 
 .nav-control  {
     position: absolute;
-    float:left;
     z-index: 9999;
-    top:0px;
     color:#FFFFFF;
-    height: 80px;
-    width: 60px;
-    font-size: 20px;
-    vertical-align: middle;
+    height: 60px;
+    width: 80px;
+    display: block;
+    top:0px;
+    padding-top:20px;
+}
+
+.nav-control img {
+    display: block;
+    margin: auto;
 }
 
 #nav-left {
     left: 0px;
-    padding-left: 30px;
-    text-align: left;
 }
 
 #nav-right {
+    width: 80px;
+    height: 80px;
     right: 0px;
-    padding-right: 30px;
-    text-align: right;
 }
+
+
 
 /* Hide the number input */
 
@@ -121,10 +132,20 @@ img {
     padding-top: 30px;
 }
 
+/*
+    -webkit-animation-name: grayPulse;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+*/
+.slick-dots li.slick-active {
+    background: #1C1C1C;
+}
+
 .slick-dots li.slick-active  span{
     color: #FFFFFF;
     text-shadow: 0px 0px 2px rgba(150, 150, 150, 0.9);
 }
+
 
 /*.slides
 {

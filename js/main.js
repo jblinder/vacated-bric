@@ -13,6 +13,11 @@ $(document).ready(function(){
     var currentLocation;
     var locCounter = 0;
     var isFirstLoad = true;
+    var timer;
+    var nextSceneTimer;
+    var timerDuration = 3000;
+    var isAutoplay = false;
+    var autoplaySpeed = 5000;
 
     loadJSON();
 
@@ -25,10 +30,51 @@ $(document).ready(function(){
             locations = data.devices[deviceId].locations;
             loadLocation();
             isFirstLoad = false;
+            resetTimer();
         });
     }
 
+    // start on last touch
+    function resetTimer() {
+        console.log("reset timer");
+
+        clearTimeout(timer);
+        clearTimeout(nextSceneTimer);
+
+        timer = setTimeout(function(){
+            startAutoplay();
+        }, timerDuration );
+    }
+
+    function startAutoplay() {
+        console.log("start autoplay");
+        // fasde out elemnents
+        // $('.main-nav').fadeTo("fast",.5);
+        // $('.slick-dots').fadeTo("fast",.5); // Not working when scene changes
+        // 
+        // handle autoplay on last slide
+        var autoplayStartSlide = $('.slides').slick('slickCurrentSlide');
+        if (autoplayStartSlide == currentLocation.images.length-1 ) {
+            goNext();
+        }
+        else {
+            $('.slides').slick('slickPlay'); 
+        }
+        isAutoplay = true;
+    }
+
+    function stopAutoplay() {
+        resetTimer();
+        if (isAutoplay) {
+            console.log("stop autoplay");
+            $('.slides').slick('slickPause');
+            isAutoplay = false;
+        }
+        // fade in ui
+    }
+
     function loadLocation() {
+
         unloadSlick(isFirstLoad,function(){
             console.log("unloaded");
             currentLocation = locations[locCounter];
@@ -43,35 +89,47 @@ $(document).ready(function(){
             $('.slides').append(slides);
             console.log("loading");
             loadSlick();
-            //$('.slides').slick('slickPlay');
         });
     }
 
     $("#nav-left").click(function() {
+        goPrev();
+    });
+
+    $("#nav-right").click(function() {
+        goNext(); 
+    });
+
+    $(document).on('touchstart', function(){
+        console.log("touch start");
+        stopAutoplay();
+    });
+
+    function goPrev() {
         // if we are at the min, go to the last location
-        console.log("loc counter was" + locCounter);    
+        console.log("loc counter was " + locCounter);    
         if (locCounter <= 0 ) 
             locCounter = locations.length-1;
         else 
             locCounter--;
-        console.log("loc counter is now" + locCounter);    
+        console.log("loc counter is now " + locCounter);    
         loadLocation();
-    });
+    }
 
-    $("#nav-right").click(function() {
+    function goNext() {
         // if we are at the max, go to first locations
-        console.log("loc counter was" + locCounter);    
+        console.log("loc counter was " + locCounter);    
         if ( locCounter >= (locations.length - 1))
             locCounter = 0;
         else 
             locCounter++;
         
-        console.log("loc counter is now" + locCounter);    
+        console.log("loc counter is now " + locCounter);    
         loadLocation();
-    });
+    }
 
 
-        /*
+    /*
     -- Slick -- 
     */ 
 
@@ -96,7 +154,10 @@ $(document).ready(function(){
         $('.slides').on('init', function(event, slick, direction){
             console.log("init");
             $('.main-container').animate({ opacity: 1 },700,"linear",function(){
-
+                if (isAutoplay) {
+                    $('.slides').slick('slickPlay');
+                    console.log("-- new scene --");
+                }   
             });
         });
 
@@ -113,19 +174,32 @@ $(document).ready(function(){
 
         // On before slide change
         $('.slides').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-            console.log(event);
-            console.log(nextSlide);
         });
+
+        $('.slides').on('afterChange', function(event, slick, currentSlide, nextSlide){
+            if (!isAutoplay)
+                return;
+            // switch if we reach the end -- do i need to do a check in goNext to prevent
+            // the call if autoplay is not longer on by the time someone interacts again?
+            if (currentSlide == currentLocation.images.length-1) {
+                $('.slides').slick('slickPause');
+                nextSceneTimer = setTimeout(goNext,autoplaySpeed);
+            }
+            console.log("slide: " + currentSlide +"/"+ parseInt(currentLocation.images.length-1));
+        });
+
+        // Get the current slide        
 
         $('.slides').slick({
             dots: true,
             mobileFirst: true,
+            // useCSS: true,
+            // cssEase: 'linear',
             infinite: false,
-            speed: 700,
+            speed: 900,
             fade: true,
-            // autoplay: true,
-            // autoplaySpeed: 3000,
-            cssEase: 'ease-out',
+            autoplay: false,
+            autoplaySpeed: autoplaySpeed,
             lazyLoad: 'progressive',
             arrows: false,
             customPaging: function(slick,index) {

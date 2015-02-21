@@ -82,7 +82,7 @@ $(document).ready(function(){
             return;
         }
 
-        $('.main-container').animate({ opacity: 0 }, 700, "linear", function() {
+        $('.main-container').animate({ opacity: 0 }, 900, "linear", function() {
             $('.slides').unbind();           // need to unbind slick events
             $('.slides').slick('unslick');   // unload slick
             $('.slides').empty();            // empty slides
@@ -95,8 +95,11 @@ $(document).ready(function(){
         // On re-initialize
         $('.slides').on('init', function(event, slick, direction){
             console.log("init");
-            $('.main-container').animate({ opacity: 1 },700,"linear",function(){
-
+            $('.main-container').animate({ opacity: 1 },900,"linear",function(){
+                if (isAutoplay) {
+                    $('.slides').slick('slickPlay');
+                    console.log("-- new scene --");
+                }   
             });
         });
 
@@ -120,6 +123,8 @@ $(document).ready(function(){
         $('.slides').slick({
             dots: true,
             mobileFirst: true,
+            useCSS: true,
+            cssEase: 'linear',
             infinite: false,
             speed: 700,
             fade: true,

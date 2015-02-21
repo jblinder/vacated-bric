@@ -1,0 +1,44 @@
+CACHE MANIFEST
+
+#version 1.0 2-20-2015
+
+CACHE:
+
+#images
+/img/1/261-StMarks-Ave/2007-10.jpg
+/img/1/261-StMarks-Ave/2011-06.jpg
+/img/1/261-StMarks-Ave/2013-10.jpg
+/img/1/261-StMarks-Ave/2014-08.jpg
+/img/1/233-34th-St/2007-10.jpg
+/img/1/233-34th-St/2011-08.jpg
+/img/1/233-34th-St/2013-01.jpg
+/img/1/233-34th-St/2013-10.jpg
+/img/1/233-34th-St/2014-08.jpg
+/img/1/4th-Carroll/2007-06.jpg
+/img/1/4th-Carroll/2009-06.jpg
+/img/1/4th-Carroll/2011-06.jpg
+/img/1/4th-Carroll/2014-08.jpg
+/img/assets/left.png
+/img/assets/right.png
+
+#internal HTML documents
+
+
+#style sheets
+/css/main.css
+/css/normalize.min.css
+/css/slick.css
+
+#style sheet images
+
+
+#javascript files
+/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js
+/js/vendor/jquery-1.11.2.min.js
+/js/vendor/slick.js
+/js/vendor/fastclick.js
+/js/vendor/kiosk_functions.js
+/js/main.js
+
+NETWORK:
+*

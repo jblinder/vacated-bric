@@ -12,15 +12,15 @@
 }
 
 @-webkit-keyframes grayPulse {
-  from { border-bottom: 4px #0D0D0D solid; }
-  50% { border-bottom: 4px #242424 solid; }
-  to { border-bottom: 4px #0D0D0D solid; }
+  from { border-bottom: 6px #0E0E0E solid; }
+  50% { border-bottom: 6px #424242 solid; }
+  to { border-bottom: 6px #0E0E0E solid; }
 }
 
 @-webkit-keyframes textPulse {
-  from { text-shadow: 0px 0px 4px rgba(0, 0, 0, 1.0); }
-  50% { text-shadow: 0px 0px 4px rgba(255, 255, 255, 1.0); }
-  to { text-shadow: 0px 0px 4px rgba(0, 0, 0, 1.0); }
+  from { text-shadow: 0px 0px 6px rgba(0, 0, 0, 1.0); }
+  50% { text-shadow: 0px 0px 6px rgba(255, 255, 255, 1.0); }
+  to { text-shadow: 0px 0px 6px rgba(0, 0, 0, 1.0); }
 }
 
 
@@ -122,7 +122,7 @@ img {
 
 .slick-dots li {
     display: table-cell;
-    height: 79px;
+    height: 77px;
     vertical-align: middle;
     overflow:hidden;
 }
@@ -148,8 +148,8 @@ img {
     -webkit-animation-iteration-count: infinite;
 */
 .slick-dots li.slick-active {
-    background: #0D0D0D;
-    border-bottom: 2px #0D0D0D solid;
+    background: #0E0E0E;
+    border-bottom: 2px #0E0E0E solid;
     -webkit-animation-name: grayPulse;
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: infinite;

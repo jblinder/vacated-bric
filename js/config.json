@@ -93,18 +93,18 @@
 			]
 		},
 		{
-			"address":"261 Saint Marks Ave Brooklyn, NY",
-			"path" : "img/1/261-StMarks-Ave/",
+			"address":"Bergen St. & Vanderbilt Ave., Brooklyn, NY",
+			"path" : "img/1/Bergen-Vanderbilt/",
 			"images": [
 				{
-					"url"  : "2007-10.jpg",
-					"month": "10",
+					"url"  : "2007-09.jpg",
+					"month": "09",
 					"year" : "2007"
 				},
 				{
-					"url"  : "2011-06.jpg",
+					"url"  : "2009-06.jpg",
 					"month": "06",
-					"year" : "2011"
+					"year" : "2009"
 				},
 				{
 					"url"  : "2013-10.jpg",

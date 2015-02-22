@@ -1,10 +1,11 @@
-var DEV_MODE = true;
-
 $(function() {
     FastClick.attach(document.body);
 });
 
+var DEV_MODE = true;
+
 $(document).ready(function(){
+
     // 1 - based on ipad, get list of addresses.
     // 2 - load current page with first in list
     //     a - construct slideshow divs from images array
@@ -15,7 +16,7 @@ $(document).ready(function(){
     var isFirstLoad = true;
     var timer;
     var nextSceneTimer;
-    var timerDuration = 3000;
+    var timerDuration = 30000;
     var isAutoplay = false;
     var autoplaySpeed = 5000;
 
@@ -100,6 +101,14 @@ $(document).ready(function(){
         goNext(); 
     });
 
+    // $("#nav-left").on('touchstart', function() {
+    //     goPrev();
+    // });
+
+    // $("#nav-right").on('touchstart', function() {
+    //     goNext(); 
+    // });
+
     $(document).on('touchstart', function(){
         console.log("touch start");
         stopAutoplay();
@@ -142,6 +151,7 @@ $(document).ready(function(){
 
         $('.main-container').animate({ opacity: 0 }, 900, "linear", function() {
             $('.slides').unbind();           // need to unbind slick events
+            $('.slides-dots').unbind();      // need to unbind slick events -- NEW
             $('.slides').slick('unslick');   // unload slick
             $('.slides').empty();            // empty slides
             cb();
@@ -159,6 +169,11 @@ $(document).ready(function(){
                     console.log("-- new scene --");
                 }   
             });
+
+            // $('.slick-dots ul li').on('click', function() {
+            //     console.log("Start");
+            //     $('.slick-dots li span').addClass('down');
+            // });
         });
 
         // On swipe event
@@ -193,10 +208,8 @@ $(document).ready(function(){
         $('.slides').slick({
             dots: true,
             mobileFirst: true,
-            useCSS: true,
-            cssEase: 'linear',
             infinite: false,
-            speed: 900,
+            speed: 800,
             fade: true,
             autoplay: false,
             autoplaySpeed: autoplaySpeed,

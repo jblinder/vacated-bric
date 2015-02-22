@@ -12,9 +12,9 @@
 }
 
 @-webkit-keyframes grayPulse {
-  from { border-bottom: 6px #0E0E0E solid; }
+  from { border-bottom: 6px #161616 solid; }
   50% { border-bottom: 6px #424242 solid; }
-  to { border-bottom: 6px #0E0E0E solid; }
+  to { border-bottom: 6px #161616 solid; }
 }
 
 @-webkit-keyframes textPulse {
@@ -148,8 +148,8 @@ img {
     -webkit-animation-iteration-count: infinite;
 */
 .slick-dots li.slick-active {
-    background: #0E0E0E;
-    border-bottom: 2px #0E0E0E solid;
+    background: #161616;
+    border-bottom: 2px #161616 solid;
     -webkit-animation-name: grayPulse;
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: infinite;
